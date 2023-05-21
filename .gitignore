@@ -1,0 +1,12 @@
+*.pyc
+build/
+dist/
+venv/
+.cache/
+.pytest_cache/
+pygsheets.egg-info/
+media/*
+
+
+.DS_Store
+.coverage
