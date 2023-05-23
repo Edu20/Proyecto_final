@@ -7,3 +7,7 @@ class Articulo(models.Model):
     cuerpo = models.CharField(max_length=254)
     autor = models.CharField(max_length=164)
     fecha = models.DateField()
+
+
+    def __str__(self):
+        return  self.titulo
