@@ -1,0 +1,15 @@
+{% extends "articulos/base.html" %}
+
+{% block contenido %}
+<section>
+    <a href="{% url 'crear_articulos' %}">Crear Articulo</a>
+    <div>
+        {% for articulo in articulos %}
+            <h1>{{ articulo.titulo }}</h1>
+            <ul>
+                <li>{{ articulo.cuerpo }}</li>
+            </ul>
+        {% endfor %}
+    </div>
+</section>
+{% endblock contenido %}

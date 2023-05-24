@@ -1,0 +1,9 @@
+{% extends "articulos/base.html" %}
+
+{% block contenido %}
+<form action="{% url 'crear_articulos' %}" method="post">
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <input type="submit" value="Enviar">
+</form>
+{% endblock contenido %}
