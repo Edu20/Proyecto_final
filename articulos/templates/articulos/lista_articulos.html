@@ -2,7 +2,12 @@
 
 {% block contenido %}
 <section>
-    <a href="{% url 'crear_articulos' %}">Crear Articulo</a>
+    <a href="{% url 'buscar_articulos' %}">Crear Articulo</a>
+    <form action="{% url 'buscar_articulos' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="busqueda">
+        <input type="submit" value="Buscar">
+    </form>
     <div>
         {% for articulo in articulos %}
             <h1>{{ articulo.titulo }}</h1>

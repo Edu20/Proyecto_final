@@ -41,3 +41,18 @@ def crear_articulo(request):
         context={'formulario':formulario}
         )
         return http_response
+    
+def buscar_articulos(request):
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data["busqueda"]
+        articulos = Articulo.objects.filter(titulo__contains=busqueda)
+        contexto = {
+            "articulos":articulos,
+        }
+    http_response = render(
+        request=request,
+        template_name='articulos/lista_articulos.html',
+        context=contexto
+    )
+    return http_response

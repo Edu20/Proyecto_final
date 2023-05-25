@@ -4,6 +4,7 @@
 <form action="{% url 'crear_articulos' %}" method="post">
     {% csrf_token %}
     {{ formulario.as_p }}
+    {{ formulario.errors }}
     <input type="submit" value="Enviar">
 </form>
 {% endblock contenido %}
