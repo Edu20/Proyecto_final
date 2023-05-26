@@ -5,4 +5,4 @@ class ArticuloFormulario(forms.Form):
     subtitulo = forms.CharField(max_length=164)
     cuerpo = forms.CharField(max_length=254)
     autor = forms.CharField(max_length=164)
-    fecha = forms.DateField()
+    fecha = forms.DateField(input_formats=["%d/%m/%Y"])

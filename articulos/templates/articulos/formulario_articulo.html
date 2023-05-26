@@ -1,7 +1,7 @@
 {% extends "articulos/base.html" %}
 
 {% block contenido %}
-<form action="{% url 'crear_articulos' %}" method="post">
+<form  method="post">
     {% csrf_token %}
     {{ formulario.as_p }}
     {{ formulario.errors }}

@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', saludo),
     path('', inicio, name="inicio"),
-    path('info/', include("articulos.urls") )
+    path('info/', include("articulos.urls") ),
+    path('perfiles/', include("perfiles.urls") ),
 ]
