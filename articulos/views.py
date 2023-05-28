@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from articulos.models import Articulo
 from articulos.forms import ArticuloFormulario
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 def listar_articulos(request):
@@ -16,6 +18,7 @@ def listar_articulos(request):
     return http_response
 
 
+@login_required
 def crear_articulo(request):
     if request.method == "POST":
         formulario = ArticuloFormulario(request.POST)
@@ -27,7 +30,8 @@ def crear_articulo(request):
             cuerpo = data["cuerpo"]
             autor = data["autor"]
             fecha = data["fecha"]
-            articulo = Articulo(titulo=titulo,subtitulo=subtitulo,cuerpo=cuerpo,autor=autor,fecha=fecha) #se crea en RAM
+            creador = request.user 
+            articulo = Articulo(titulo=titulo,subtitulo=subtitulo,cuerpo=cuerpo,autor=autor,fecha=fecha, creador=creador) #se crea en RAM
             articulo.save() #se guarda en la base de datos 
             url_exitosa = reverse('lista_articulos')
             return redirect(url_exitosa)
@@ -58,14 +62,21 @@ def buscar_articulos(request):
     )
     return http_response
 
+
+@login_required
 def eliminar_articulo(request, id):
     articulo = Articulo.objects.get(id=id)
     if request.method == "POST":
         articulo.delete()
         url_exitosa = reverse('lista_articulos')
         return redirect(url_exitosa)
+    else:
+            # Procesar la solicitud GET para mostrar una confirmación de eliminación
+        articulo = Articulo.objects.get(id=id)
+        return render(request, 'articulos/eliminar_articulo.html', {'articulo': articulo})
 
 
+@login_required
 def editar_articulo(request, id):
     articulo = Articulo.objects.get(id=id)
     if request.method == "POST":
