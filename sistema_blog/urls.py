@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from sistema_blog.views import saludo, inicio
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 
 urlpatterns = [
@@ -26,3 +29,5 @@ urlpatterns = [
     path('info/', include("articulos.urls") ),
     path('perfiles/', include("perfiles.urls") ),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
