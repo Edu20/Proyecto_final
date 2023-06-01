@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from articulos.models import Articulo
 from datetime import datetime
 
 
@@ -12,7 +12,9 @@ def saludo(request):
 
 
 def inicio(request):
-    contexto = {}
+    contexto = {
+        "articulos": Articulo.objects.all()
+    }
     http_response = render(
         request=request,
         template_name="articulos/index.html",

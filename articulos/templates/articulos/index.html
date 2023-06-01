@@ -2,6 +2,27 @@
 
 
 {% block contenido %}
-<h1>Bienvenidos a Coder {{ user.first_name }}</h1>
-<img src="{{ user.avatar.imagen.url }}" alt="">
+{% for articulo in articulos %}
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ articulo.titulo }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ articulo.subtitulo }}</h6>
+              <p class="card-text">{{ articulo.cuerpo }}</p>
+              <a href="{% url 'lista_articulos' %}" class="card-link">Ver más</a>
+            </div>
+        </div>
+        <br>
+        <br>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+{% endfor %}
 {% endblock contenido %}
