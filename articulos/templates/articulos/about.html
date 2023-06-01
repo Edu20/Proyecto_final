@@ -1,0 +1,22 @@
+{% extends "articulos/base.html" %}
+{% load static %}
+
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <p>-Mi nonbre es: Eduardo Aguirre, soy de Rio Cuarto, Córdoba, Argentina. <br>
+            - Tengo 41 años. <br>
+            - Soy estudiante de programación. <br>
+            - Actualmente me ecuentro cursando Django en Coder House!
+        </p>
+      </div>
+      <div class="col">
+        <img src="{% static 'images/yo2.jpg' %}" alt="Mi Imagen">
+      </div>
+    </div>
+  </div>
+
+
+{% endblock contenido %}

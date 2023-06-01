@@ -19,3 +19,13 @@ def inicio(request):
         context=contexto
     )
     return http_response
+
+
+def about(request):
+    contexto = {}
+    http_response = render(
+        request=request,
+        template_name="articulos/about.html",
+        context=contexto
+    )
+    return http_response
