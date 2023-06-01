@@ -2,9 +2,21 @@
 
 
 {% block contenido %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Iniciar Sesión">
-</form>
+<div class="container">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <form method="post">
+            <div class="mb-3">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
 {% endblock contenido %}

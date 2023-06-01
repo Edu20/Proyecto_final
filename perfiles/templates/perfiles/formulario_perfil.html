@@ -2,11 +2,21 @@
 
 
 {% block contenido %}
-<p>Tu username es <b>{{ object.username }}</b></p>
-<h3>Editar datos:</h3>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Salvar">
-</form>
+<div class="container">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <p>Tu username es <b>{{ object.username }}</b></p>
+        <h3>Editar datos:</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Salvar">
+        </form>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
 {% endblock contenido %}

@@ -1,11 +1,21 @@
 {% extends "articulos/base.html" %}
 
 {% block contenido %}
-<form  method="post">
-    {% csrf_token %}
-    {{ formulario.as_p }}
-    {{ formulario.errors }}
-    <p>Esta seguro que desea eliminar a: {{ articulo.titulo }}</p>
-    <input type="submit" value="Eliminar">
-</form>
+<div class="container">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <form  method="post">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            {{ formulario.errors }}
+            <p>Esta seguro que desea eliminar a: {{ articulo.titulo }}</p>
+            <input type="submit" value="Eliminar">
+        </form>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
 {% endblock contenido %}

@@ -7,14 +7,13 @@
 <div class="container">
     <div class="row">
       <div class="col">
+        <a href="{% url 'lista_articulos' %}" class="card-link">Ver más</a>
       </div>
       <div class="col">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">{{ articulo.titulo }}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{ articulo.subtitulo }}</h6>
               <p class="card-text">{{ articulo.cuerpo }}</p>
-              <a href="{% url 'lista_articulos' %}" class="card-link">Ver más</a>
             </div>
         </div>
         <br>
