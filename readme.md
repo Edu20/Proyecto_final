@@ -20,6 +20,9 @@ python manage.py create superuser
 ```
 + acceder user y password via:
 
+user: coder
+password: coder123
+
 ```
 127.0.0.1:8000/admin
 ```
