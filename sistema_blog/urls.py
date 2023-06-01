@@ -27,7 +27,7 @@ urlpatterns = [
     path('saludo/', saludo),
     path('', inicio, name="inicio"),
     path('info/', include("articulos.urls") ),
-    path('perfiles/', include("perfiles.urls") ),
+    path('accounts/', include("perfiles.urls") ),
     path('about/', about, name="about"),
 ]
 
