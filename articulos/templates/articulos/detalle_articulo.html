@@ -1,0 +1,39 @@
+{% extends "articulos/base.html" %}
+
+
+
+{% block contenido %}
+<section>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Subtitulo</th>
+                <th>Cuerpo</th>
+                <th>Autor</th>
+                <th>Fecha</th>
+            </tr>
+            <tr>
+                <td>{{ articulo.id }}</td>
+                <td>{{ articulo.titulo }}</td>
+                <td>{{ articulo.subtitulo }}</td>
+                <td>{{ articulo.cuerpo }}</td>
+                <td>{{ articulo.autor }}</td>
+                <td>{{ articulo.fecha }}</td>
+                {% if user == articulo.creador %}
+                <td>
+                    <a href="{% url 'editar_articulos' articulo.id %}">Editar</a>
+                </td>
+                <td>
+                    <form action="{% url 'eliminar_articulos' articulo.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Eliminar">
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+{% endblock contenido %}

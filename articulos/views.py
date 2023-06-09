@@ -108,3 +108,6 @@ def editar_articulo(request, id):
         context={'formulario':formulario},
         )
 
+def detalle_articulo(request, id):
+    articulo = Articulo.objects.get(id=id)
+    return render(request, 'articulos/detalle_articulo.html', {'articulo': articulo})
