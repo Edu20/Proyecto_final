@@ -23,12 +23,12 @@
                 <td>{{ articulo.fecha }}</td>
                 {% if user == articulo.creador %}
                 <td>
-                    <a href="{% url 'editar_articulos' articulo.id %}">Editar</a>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'editar_articulos' articulo.id %}">Editar</a>
                 </td>
                 <td>
                     <form action="{% url 'eliminar_articulos' articulo.id %}" method="post">
                         {% csrf_token %}
-                        <input type="submit" value="Eliminar">
+                        <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
                     </form>
                     {% endif %}
                 </td>
