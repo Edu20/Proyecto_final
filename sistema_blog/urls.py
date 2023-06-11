@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from sistema_blog.views import saludo, inicio, about
+from sistema_blog.views import saludo, inicio, about, proximamente
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -29,6 +29,7 @@ urlpatterns = [
     path('info/', include("articulos.urls") ),
     path('accounts/', include("perfiles.urls") ),
     path('about/', about, name="about"),
+    path('proximamente/', proximamente, name="proximamente"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

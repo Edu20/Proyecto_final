@@ -21,13 +21,13 @@
 
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+        <nav class="navbar static-top" style="background-color: rgb(205, 226, 220);">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'lista_articulos' %}">Lista de articulos</a>
                 {% if user.is_authenticated %}
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false" >
+                    <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false" >
                         <div style="display: inline-flex;">
                             <span>{{ user.username }}</span>
                         </div>
@@ -43,29 +43,32 @@
                             <a class="dropdown-item" href="{% url 'logout' %}"><strong>Cerrar Sesión</strong></a>
                         </li>
                     </ul>
+                    <a class="btn btn-outline-info btn-sm" href="{% url 'about' %}">A cerca de mi</a>
                 </div>
                 {% else %}
-                <a class="btn btn-primary" href="{% url 'login' %}">Inicio sesión</a>
-                <a class="btn btn-primary" href="{% url 'registro' %}">Registro</a>
-                <a class="btn btn-primary" href="{% url 'about' %}">A cerca de mi</a>
+                <div>
+                    <a class="btn btn-outline-secondary btn-sm" href="{% url 'login' %}">Inicio sesión</a>
+                    <a class="btn btn-outline-success btn-sm" href="{% url 'registro' %}">Registro</a>
+                    <a class="btn btn-outline-info btn-sm" href="{% url 'about' %}">A cerca de mi</a>
+                </div>
                 {% endif %}
             </div>
         </nav>
 
-        <section style="padding:4rem 3rem;">    
+        <section style="padding:4rem 3rem; background-color: beige;">    
            {% block contenido %}
            {% endblock contenido %}
         </section>
 
         <!-- Footer-->
-        <footer class="footer bg-light">
+        <footer class="footer" style="background-color: rgb(205, 226, 220);">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">Ayuda</a></li>
+                            <li class="list-inline-item"><a href="{% url 'proximamente'%}">Ayuda</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contacto</a></li>
+                            <li class="list-inline-item"><a href="{% url 'proximamente'%}">Contacto</a></li>
                       
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Curso de Python - CoderHouse.</p>

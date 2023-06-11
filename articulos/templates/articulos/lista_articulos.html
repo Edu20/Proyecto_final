@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ articulo.titulo }}</td>
                 <td>{{ articulo.subtitulo }}</td>
-                <td><a class="btn btn-info" href="{% url 'detalle_articulos' articulo.id %}">Ver detalle</a></td>
+                <td><a class="btn btn-info btn-sm" href="{% url 'detalle_articulos' articulo.id %}">Ver detalle</a></td>
             </tr>
             {% endfor %}
         </tbody>
